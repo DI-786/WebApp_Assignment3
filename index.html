@@ -3,17 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Index Page</h1>
-    <p>Welcome to our Web Page!</p>
+    <header>
+        <div class="logo">
+        <h1>Home Sweet Home Restaurant</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger" onclick="toggleMenu()">
+            
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Welcome to Home Sweet Home Restaurant</h1>
+                <p>Experience the taste of home with our delicious meals.</p>
+            </div>
+        </section>
+        <section class="about">
+            <h2>About Us</h2>
+            <p>At Home Sweet Home Restaurant, we pride ourselves on serving homemade dishes made with love and care. Our menu features a variety of comfort foods that will make you feel right at home.</p>
+        </section>
+        <section class="menu-preview">
+            <h2>Menu Preview</h2>
+            <p>Check out our mouth-watering menu items and find your new favorite dish!</p>
+            <a href="menu.html" class="btn">View Full Menu</a>
+        </section>
 
 
     
 
-    <p>For inquiries, please visit our <a href="contact.html">Contact Page</a>.</p>
-
+   
 </body>
 </html>
