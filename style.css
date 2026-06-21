@@ -47,3 +47,35 @@ body {
         flex-direction: column;
     }
 }
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.gallery-item {
+    width: calc(33% - 20px);
+    min-width: 220px;
+    text-align: center;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.gallery-item p {
+    margin-top: 8px;
+    color: #333;
+}
+
+@media (max-width: 760px) {
+    .gallery-item {
+        width: 100%;
+    }
+}
