@@ -3,11 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Page</title>
+    <title>Reservations</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Product Page</h1>
-    <p>Welcome to our Product Page!</p>
+    <h1>Reservations Form</h1>
+    <p>Please fill out the form below to make a reservation.</p>
+    <form action="submit_reservation.php" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required><br><br>
+
+        <label for="date">Reservation Date:</label>
+        <input type="date" id="date" name="date" required><br><br>
+
+        <label for="time">Reservation Time:</label>
+        <input type="time" id="time" name="time" required><br><br>
+
+        <label for="guests">Number of Guests:</label>
+        <input type="number" id="guests" name="guests" min="1" required><br><br>
+
+        <label for="reservation-type">Type of Reservation:</label>
+        <select id="reservation-type" name="reservation-type" required onchange="toggleEventType()">
+            <option value="">-- Select Reservation Type --</option>
+            <option value="table">Table Reservation</option>
+            <option value="event">Event Reservation</option>
+        </select><br><br>
+
+        <div id="event-type-section" style="display:none;">
+            <label for="event-type">Type of Event:</label>
+            <select id="event-type" name="event-type">
+                <option value="">-- Select Event Type --</option>
+                <option value="wedding">Wedding</option>
+                <option value="birthday">Birthday</option>
+                <option value="private-dining">Private Dining</option>
+                <option value="catering">Catering</option>
+            </select><br><br>
+        </div>
+
+        <input type="submit" value="Submit Reservation">
+
+    </form>
+
+    <script>
+        function toggleEventType() {
+            const reservationType = document.getElementById('reservation-type').value;
+            const eventTypeSection = document.getElementById('event-type-section');
+            const eventTypeSelect = document.getElementById('event-type');
+            
+            if (reservationType === 'event') {
+                eventTypeSection.style.display = 'block';
+                eventTypeSelect.required = true;
+            } else {
+                eventTypeSection.style.display = 'none';
+                eventTypeSelect.required = false;
+            }
+        }
+    </script>
 </body>
 </html>
