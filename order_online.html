@@ -3,11 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Page</title>
+    <title>Order Online</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Product Page</h1>
-    <p>Welcome to our Product Page!</p>
+    <h1>Order Online</h1>
+    <p>WELCOME TO OUR ONLINE ORDERING PAGE!</p>
+    <p>We are excited to offer you the convenience of ordering your 
+        favorite dishes from our restaurant online. Whether you're 
+        craving a delicious meal for lunch, dinner, or a special occasion, 
+        we've got you covered!</p>
+
+    <section class="order-online">
+        <h2>Order from the Menu</h2>
+        <form action="submit_order.php" method="POST">
+            <fieldset>
+                <legend>Choose your dishes</legend>
+                <label>
+                    <input type="checkbox" name="order-item[]" value="starter-1">
+                    Fish Fingers with fries
+                </label><br>
+                <label>
+                    <input type="checkbox" name="order-item[]" value="starter-2">
+                    Samosas
+                </label><br>
+                <label>
+                    <input type="checkbox" name="order-item[]" value="starter-3">
+                    Fries only
+                </label><br>
+                <label>
+                    <input type="checkbox" name="order-item[]" value="breakfast-1">
+                    Scrambled Eggs
+                </label><br>
+                <label>
+                    <input type="checkbox" name="order-item[]" value="breakfast-2">
+                    Pancakes
+                </label><br>
+                <label>
+                    <input type="checkbox" name="order-item[]" value="breakfast-3">
+                    French Toast
+                </label><br>
+                <label>
+                    <input type="checkbox" name="order-item[]" value="lunch-1">
+                    Lunch Item 1
+                </label><br>
+                <label>
+                    <input type="checkbox" name="order-item[]" value="lunch-2">
+                    Lunch Item 2
+                </label><br>
+                <label>
+                    <input type="checkbox" name="order-item[]" value="lunch-3">
+                    Lunch Item 3
+                </label><br>
+                <label>
+                    <input type="checkbox" name="order-item[]" value="dinner-1">
+                    Dinner Item 1
+                </label><br>
+                <label>
+                    <input type="checkbox" name="order-item[]" value="dinner-2">
+                    Dinner Item 2
+                </label><br>
+                <label>
+                    <input type="checkbox" name="order-item[]" value="dinner-3">
+                    Dinner Item 3
+                </label><br>
+                <label>
+                    <input type="checkbox" name="order-item[]" value="dessert-1">
+                    Dessert 1
+                </label><br>
+                <label>
+                    <input type="checkbox" name="order-item[]" value="dessert-1">
+                    Dessert 1
+                </label><br>
+                <label>
+                    <input type="checkbox" name="order-item[]" value="dessert-2">
+                    Dessert 2
+                </label><br>
+                <label>
+                    <input type="checkbox" name="order-item[]" value="dessert-3">
+                    Dessert 3
+                </label><br>
+                <label>
+                    <input type="checkbox" name="order-item[]" value="drink-1">
+                    Soft Drinks
+                </label><br>
+                <label>
+                    <input type="checkbox" name="order-item[]" value="drink-2">
+                    Fruit Juices
+                </label><br>
+                <label>
+                    <input type="checkbox" name="order-item[]" value="drink-3">
+                    Coffee
+                </label><br>
+                <label>
+                    <input type="checkbox" name="order-item[]" value="drink-4">
+                    Tea
+                </label><br>
+            </fieldset>
+
+            <label for="delivery-address">Delivery Address:</label><br>
+            <textarea id="delivery-address" name="delivery-address" rows="3" required></textarea><br><br>
+
+            <label for="contact-phone">Contact Phone:</label><br>
+            <input type="tel" id="contact-phone" name="contact-phone" required><br><br>
+
+            <label for="delivery-notes">Delivery Notes (optional):</label><br>
+            <textarea id="delivery-notes" name="delivery-notes" rows="2"></textarea><br><br>
+
+            <p><strong>Payment method:</strong> Cash on delivery only. Payment will be collected when your order arrives.</p>
+
+            <input type="submit" value="Place Order">
+        </form>
+    </section>
 </body>
 </html>
