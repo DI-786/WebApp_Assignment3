@@ -19,86 +19,95 @@
         <form action="submit_order.php" method="POST">
             <fieldset>
                 <legend>Choose your dishes</legend>
-                <label>
-                    <input type="checkbox" name="order-item[]" value="starter-1">
-                    Fish Fingers with fries
-                </label><br>
-                <label>
-                    <input type="checkbox" name="order-item[]" value="starter-2">
-                    Samosas
-                </label><br>
-                <label>
-                    <input type="checkbox" name="order-item[]" value="starter-3">
-                    Fries only
-                </label><br>
-                <label>
-                    <input type="checkbox" name="order-item[]" value="breakfast-1">
-                    Scrambled Eggs
-                </label><br>
-                <label>
-                    <input type="checkbox" name="order-item[]" value="breakfast-2">
-                    Pancakes
-                </label><br>
-                <label>
-                    <input type="checkbox" name="order-item[]" value="breakfast-3">
-                    French Toast
-                </label><br>
-                <label>
-                    <input type="checkbox" name="order-item[]" value="lunch-1">
-                    Lunch Item 1
-                </label><br>
-                <label>
-                    <input type="checkbox" name="order-item[]" value="lunch-2">
-                    Lunch Item 2
-                </label><br>
-                <label>
-                    <input type="checkbox" name="order-item[]" value="lunch-3">
-                    Lunch Item 3
-                </label><br>
-                <label>
-                    <input type="checkbox" name="order-item[]" value="dinner-1">
-                    Dinner Item 1
-                </label><br>
-                <label>
-                    <input type="checkbox" name="order-item[]" value="dinner-2">
-                    Dinner Item 2
-                </label><br>
-                <label>
-                    <input type="checkbox" name="order-item[]" value="dinner-3">
-                    Dinner Item 3
-                </label><br>
-                <label>
-                    <input type="checkbox" name="order-item[]" value="dessert-1">
-                    Dessert 1
-                </label><br>
-                <label>
-                    <input type="checkbox" name="order-item[]" value="dessert-1">
-                    Dessert 1
-                </label><br>
-                <label>
-                    <input type="checkbox" name="order-item[]" value="dessert-2">
-                    Dessert 2
-                </label><br>
-                <label>
-                    <input type="checkbox" name="order-item[]" value="dessert-3">
-                    Dessert 3
-                </label><br>
-                <label>
-                    <input type="checkbox" name="order-item[]" value="drink-1">
-                    Soft Drinks
-                </label><br>
-                <label>
-                    <input type="checkbox" name="order-item[]" value="drink-2">
-                    Fruit Juices
-                </label><br>
-                <label>
-                    <input type="checkbox" name="order-item[]" value="drink-3">
-                    Coffee
-                </label><br>
-                <label>
-                    <input type="checkbox" name="order-item[]" value="drink-4">
-                    Tea
-                </label><br>
+                <div class="menu-columns">
+                    <div class="menu-column">
+                        <h3>Starters & Breakfast</h3>
+                        <label>
+                            <input type="checkbox" name="order-item[]" value="starter-1">
+                            Fish Fingers with fries
+                        </label>
+                        <label>
+                            <input type="checkbox" name="order-item[]" value="starter-2">
+                            Samosas
+                        </label>
+                        <label>
+                            <input type="checkbox" name="order-item[]" value="starter-3">
+                            Fries only
+                        </label>
+                        <label>
+                            <input type="checkbox" name="order-item[]" value="breakfast-1">
+                            Scrambled Eggs
+                        </label>
+                        <label>
+                            <input type="checkbox" name="order-item[]" value="breakfast-2">
+                            Pancakes
+                        </label>
+                        <label>
+                            <input type="checkbox" name="order-item[]" value="breakfast-3">
+                            French Toast
+                        </label>
+                    </div>
+
+                    <div class="menu-column">
+                        <h3>Lunch & Dinner</h3>
+                        <label>
+                            <input type="checkbox" name="order-item[]" value="lunch-1">
+                            Grilled Cheese Sandwich
+                        </label>
+                        <label>
+                            <input type="checkbox" name="order-item[]" value="lunch-2">
+                            Biryani
+                        </label>
+                        <label>
+                            <input type="checkbox" name="order-item[]" value="lunch-3">
+                            Chicken Salad
+                        </label>
+                        <label>
+                            <input type="checkbox" name="order-item[]" value="dinner-1">
+                            Grilled Salmon
+                        </label>
+                        <label>
+                            <input type="checkbox" name="order-item[]" value="dinner-2">
+                            Beef Steak
+                        </label>
+                        <label>
+                            <input type="checkbox" name="order-item[]" value="dinner-3">
+                            Pasta
+                        </label>
+                    </div>
+
+                    <div class="menu-column">
+                        <h3>Desserts & Drinks</h3>
+                        <label>
+                            <input type="checkbox" name="order-item[]" value="dessert-1">
+                            Chocolate Cake
+                        </label>
+                        <label>
+                            <input type="checkbox" name="order-item[]" value="dessert-2">
+                            Ice Cream
+                        </label>
+                        <label>
+                            <input type="checkbox" name="order-item[]" value="dessert-3">
+                            Fruit Cake
+                        </label>
+                        <label>
+                            <input type="checkbox" name="order-item[]" value="drink-1">
+                            Soft Drinks
+                        </label>
+                        <label>
+                            <input type="checkbox" name="order-item[]" value="drink-2">
+                            Fruit Juices
+                        </label>
+                        <label>
+                            <input type="checkbox" name="order-item[]" value="drink-3">
+                            Coffee
+                        </label>
+                        <label>
+                            <input type="checkbox" name="order-item[]" value="drink-4">
+                            Tea
+                        </label>
+                    </div>
+                </div>
             </fieldset>
 
             <label for="delivery-address">Delivery Address:</label><br>

@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    line-height: 1.6;
+}
+
+.order-online {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.menu-columns {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+}
+
+.menu-column {
+    flex: 1;
+    min-width: 240px;
+    background: #f9f9f9;
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.menu-column h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.menu-column label {
+    display: block;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.menu-column input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+@media (max-width: 760px) {
+    .menu-columns {
+        flex-direction: column;
+    }
+}
