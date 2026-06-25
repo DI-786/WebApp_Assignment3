@@ -1,7 +1,140 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
+    margin: 0;
+    padding: 0;
     line-height: 1.6;
+    background: #f8f3ee;
+    color: #333;
+}
+
+header {
+    background: #fff;
+    padding: 20px 24px;
+    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 1.6rem;
+    color: #4b302a;
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    list-style: none;
+    padding: 0;
+    margin: 16px 0 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #5a4237;
+    padding: 10px 14px;
+    border-radius: 10px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+nav a:hover,
+nav a.active {
+    background: #e3c8b3;
+    color: #2f1b13;
+}
+
+.hamburger {
+    display: none;
+    width: 32px;
+    height: 24px;
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    cursor: pointer;
+    background-image: linear-gradient(#5a4237 0 0), linear-gradient(#5a4237 0 0), linear-gradient(#5a4237 0 0);
+    background-size: 100% 2px;
+    background-repeat: no-repeat;
+    background-position: top center, center center, bottom center;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 24px 64px;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 360px;
+    background-image: url("Images/pasta.avif");
+    background-size: cover;
+    background-position: center;
+    border-radius: 18px;
+    position: relative;
+    color: #fff;
+    overflow: hidden;
+    margin-bottom: 32px;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    text-align: center;
+    padding: 40px 24px;
+}
+
+.hero-content h1 {
+    margin: 0 0 16px;
+    font-size: 3rem;
+    letter-spacing: 0.02em;
+}
+
+.hero-content p {
+    font-size: 1.15rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.about,
+.menu-preview {
+    background: #fff;
+    padding: 28px 30px;
+    border-radius: 18px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+    margin-bottom: 24px;
+}
+
+.about h2,
+.menu-preview h2 {
+    margin-top: 0;
+    color: #4d362f;
+}
+
+.btn {
+    display: inline-block;
+    background: #b26650;
+    color: #fff;
+    padding: 12px 26px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    background: #99563f;
 }
 
 .order-online {
