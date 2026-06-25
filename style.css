@@ -117,9 +117,40 @@ main {
 }
 
 .about h2,
-.menu-preview h2 {
+.menu-preview h2,
+.page-links h2 {
     margin-top: 0;
     color: #4d362f;
+}
+
+.page-links {
+    background: #fff;
+    padding: 28px 30px;
+    border-radius: 18px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+.link-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(150px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.page-link {
+    display: block;
+    padding: 16px;
+    background: #f7e8de;
+    color: #4f382f;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 14px;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.page-link:hover {
+    background: #e7d0c2;
+    transform: translateY(-2px);
 }
 
 .btn {
