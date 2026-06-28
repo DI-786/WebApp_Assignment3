@@ -39,7 +39,10 @@
 
     <section class="order-online">
         <h2>Order from the Menu</h2>
-        <form action="submit_order.php" method="POST">
+        <p id="order-availability-message" class="status-message"></p>
+        <p id="order-success-message" class="success-message"></p>
+        <p class="order-hours"><strong>Online ordering hours:</strong> 10:00 - 21:00.</p>
+        <form id="order-form" action="submit_order.php" method="POST">
             <fieldset>
                 <legend>Choose your dishes</legend>
                 <div class="menu-columns">

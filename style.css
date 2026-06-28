@@ -277,6 +277,26 @@ main {
     }
 }
 
+.status-message {
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.status-message.closed {
+    color: #c0392b;
+}
+
+.status-message:not(.closed) {
+    color: #1d6b3d;
+}
+
+.success-message {
+    margin-bottom: 12px;
+    font-weight: 700;
+    color: #176b37;
+    display: none;
+}
+
 .gallery {
     display: flex;
     flex-wrap: wrap;
