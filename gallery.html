@@ -30,30 +30,104 @@
     </header>
     <h1>Gallery</h1>
     <p>Welcome to our Gallery!</p>
-    <section class="gallery">
-        <div class="gallery-item">
-            <img src="Images/Chicken-Biryani.jpg" alt="Chicken Biryani">
-            <p>Delicious Chicken Biryani</p>
-        </div>
-        <div class="gallery-item">
-            <img src="Images/Chocolate_cake.jpg" alt="Chocolate Cake">
-            <p>Chocolate Cake</p>
-        </div>
-        <div class="gallery-item">
-            <img src="Images/pasta.avif" alt="Pasta">
-            <p>Pasta Dish</p>
-        </div>
-        <div class="gallery-item">
-            <img src="Images/Restaurant1.jpg" alt="Restaurant Interior">
-            <p>Restaurant Interior</p>
-        </div>
-        <div class="gallery-item">
-            <img src="Images/RestaurantEntrance.jpg" alt="Restaurant Entrance">
-            <p>Restaurant Entrance</p>
-        </div>
-    </section>
+        <section class="container">
+            <div class="row g-3">
+                <div class="col-sm-6 col-md-4">
+                    <div class="card gallery-card">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-img="Images/Chicken-Biryani.jpg" data-title="Delicious Chicken Biryani">
+                            <div class="ratio ratio-4x3">
+                                <img src="Images/Chicken-Biryani.jpg" loading="lazy" class="object-cover" alt="Chicken Biryani">
+                            </div>
+                            <div class="card-body py-2">
+                                <p class="mb-0 text-muted small">Delicious Chicken Biryani</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                    <div class="card gallery-card">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-img="Images/Chocolate_cake.jpg" data-title="Chocolate Cake">
+                            <div class="ratio ratio-4x3">
+                                <img src="Images/Chocolate_cake.jpg" loading="lazy" class="object-cover" alt="Chocolate Cake">
+                            </div>
+                            <div class="card-body py-2">
+                                <p class="mb-0 text-muted small">Chocolate Cake</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                    <div class="card gallery-card">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-img="Images/pasta.avif" data-title="Pasta Dish">
+                            <div class="ratio ratio-4x3">
+                                <img src="Images/pasta.avif" loading="lazy" class="object-cover" alt="Pasta">
+                            </div>
+                            <div class="card-body py-2">
+                                <p class="mb-0 text-muted small">Pasta Dish</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                    <div class="card gallery-card">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-img="Images/Restaurant1.jpg" data-title="Restaurant Interior">
+                            <div class="ratio ratio-4x3">
+                                <img src="Images/Restaurant1.jpg" loading="lazy" class="object-cover" alt="Restaurant Interior">
+                            </div>
+                            <div class="card-body py-2">
+                                <p class="mb-0 text-muted small">Restaurant Interior</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                    <div class="card gallery-card">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-img="Images/RestaurantEntrance.jpg" data-title="Restaurant Entrance">
+                            <div class="ratio ratio-4x3">
+                                <img src="Images/RestaurantEntrance.jpg" loading="lazy" class="object-cover" alt="Restaurant Entrance">
+                            </div>
+                            <div class="card-body py-2">
+                                <p class="mb-0 text-muted small">Restaurant Entrance</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lightbox modal -->
+            <div class="modal fade" id="lightboxModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content bg-transparent border-0">
+                        <div class="modal-body p-0">
+                            <img id="lightboxImg" src="" class="w-100" alt="">
+                            <div class="p-3 bg-white rounded-bottom">
+                                <h5 id="lightboxTitle" class="mb-0"></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // populate and open lightbox modal
+    document.querySelectorAll('.gallery-card a').forEach(a=>{
+        a.addEventListener('click', e=>{
+            const img = a.dataset.img;
+            const title = a.dataset.title || '';
+            const modalImg = document.getElementById('lightboxImg');
+            const modalTitle = document.getElementById('lightboxTitle');
+            modalImg.src = img;
+            modalImg.alt = title;
+            modalTitle.textContent = title;
+        });
+    });
+</script>
 <script src="script.js"></script>
 </body>
 </html>
