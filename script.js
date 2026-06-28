@@ -288,4 +288,32 @@ document.addEventListener('DOMContentLoaded', function() {
     if (ratingForm) {
         ratingForm.addEventListener('submit', handleRatingSubmit);
     }
+
+    // Attach digit-only + length enforcement to inputs with class 'ten-digit'
+    enforceTenDigitInputs();
 });
+
+/**
+ * Enforce numeric-only input and exact 10-digit length for inputs with class 'ten-digit'.
+ * Adds input filtering (removes non-digits) and a blur-time validity check.
+ */
+function enforceTenDigitInputs() {
+    const inputs = document.querySelectorAll('input.ten-digit');
+    inputs.forEach(input => {
+        // Normalize input while typing: remove non-digit characters and enforce maxlength
+        input.addEventListener('input', () => {
+            const digits = input.value.replace(/\D/g, '').slice(0, 10);
+            if (input.value !== digits) input.value = digits;
+            input.setCustomValidity('');
+        });
+
+        // On blur, set a helpful validation message if length is not exactly 10
+        input.addEventListener('blur', () => {
+            if (input.value.length !== 10) {
+                input.setCustomValidity('Please enter exactly 10 digits.');
+            } else {
+                input.setCustomValidity('');
+            }
+        });
+    });
+}

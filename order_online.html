@@ -142,7 +142,9 @@
             <textarea id="delivery-address" name="delivery-address" rows="3" required></textarea><br><br>
 
             <label for="contact-phone">Contact Phone:</label><br>
-            <input type="tel" id="contact-phone" name="contact-phone" required><br><br>
+            <input type="tel" id="contact-phone" name="contact-phone" class="ten-digit" inputmode="numeric" pattern="\d{10}" minlength="10" maxlength="10" title="Enter a 10-digit phone number" placeholder="7123456789" required>
+            <small class="form-text text-muted">Enter 10 digits (numbers only).</small>
+            <br><br>
 
             <label for="delivery-notes">Delivery Notes (optional):</label><br>
             <textarea id="delivery-notes" name="delivery-notes" rows="2"></textarea><br><br>

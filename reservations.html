@@ -55,7 +55,7 @@
                     <label for="phone" class="form-label">Phone number</label>
                     <div class="input-group">
                         <span class="input-group-text">+254</span>
-                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="712345678" required>
+                        <input type="tel" class="form-control ten-digit" id="phone" name="phone" inputmode="numeric" pattern="\d{10}" minlength="10" maxlength="10" title="Enter a 10-digit phone number" placeholder="7123456789" required>
                         <div class="invalid-feedback">Please enter a phone number.</div>
                     </div>
                 </div>
