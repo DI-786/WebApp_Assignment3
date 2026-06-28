@@ -31,45 +31,45 @@
     <h1>Gallery</h1>
     <p>Welcome to our Gallery!</p>
         <section class="container">
-            <div class="row g-3">
-                <div class="col-sm-6 col-md-4">
-                    <div class="card gallery-card">
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-img="Images/Chicken-Biryani.jpg" data-title="Delicious Chicken Biryani">
-                            <div class="ratio ratio-4x3">
-                                <img src="Images/Chicken-Biryani.jpg" loading="lazy" class="object-cover" alt="Chicken Biryani">
-                            </div>
-                            <div class="card-body py-2">
-                                <p class="mb-0 text-muted small">Delicious Chicken Biryani</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-md-4">
-                    <div class="card gallery-card">
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-img="Images/Chocolate_cake.jpg" data-title="Chocolate Cake">
-                            <div class="ratio ratio-4x3">
-                                <img src="Images/Chocolate_cake.jpg" loading="lazy" class="object-cover" alt="Chocolate Cake">
-                            </div>
-                            <div class="card-body py-2">
-                                <p class="mb-0 text-muted small">Chocolate Cake</p>
+        <div class="row g-3">
+        <div class="col-sm-6 col-md-4">
+        <div class="card gallery-card">
+        <a href="#" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-img="Images/Chicken-Biryani.jpg" data-title="Delicious Chicken Biryani">
+        <div class="ratio ratio-4x3">
+        <img src="Images/Chicken-Biryani.jpg" loading="lazy" class="object-cover" alt="Chicken Biryani">
+        </div>
+        <div class="card-body py-2">
+        <p class="mb-0 text-muted small">Delicious Chicken Biryani</p>
                             </div>
                         </a>
                     </div>
                 </div>
 
-                <div class="col-sm-6 col-md-4">
-                    <div class="card gallery-card">
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-img="Images/pasta.avif" data-title="Pasta Dish">
-                            <div class="ratio ratio-4x3">
-                                <img src="Images/pasta.avif" loading="lazy" class="object-cover" alt="Pasta">
-                            </div>
-                            <div class="card-body py-2">
-                                <p class="mb-0 text-muted small">Pasta Dish</p>
-                            </div>
-                        </a>
-                    </div>
+        <div class="col-sm-6 col-md-4">
+        <div class="card gallery-card">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-img="Images/Chocolate_cake.jpg" data-title="Chocolate Cake">
+            <div class="ratio ratio-4x3">
+            <img src="Images/Chocolate_cake.jpg" loading="lazy" class="object-cover" alt="Chocolate Cake">
+        </div>
+        <div class="card-body py-2">
+        <p class="mb-0 text-muted small">Chocolate Cake</p>
+            </div>
+            </a>
                 </div>
+                </div>
+
+        <div class="col-sm-6 col-md-4">
+        <div class="card gallery-card">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-img="Images/pasta.avif" data-title="Pasta Dish">
+        <div class="ratio ratio-4x3">
+            <img src="Images/pasta.avif" loading="lazy" class="object-cover" alt="Pasta">
+        </div>
+        <div class="card-body py-2">
+        <p class="mb-0 text-muted small">Pasta Dish</p>
+        </div>
+        </a>
+        </div>
+            </div>
 
                 <div class="col-sm-6 col-md-4">
                     <div class="card gallery-card">
@@ -114,6 +114,10 @@
         </section>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Inline JS: populate the Bootstrap lightbox modal with the clicked image and caption.
+     This keeps the gallery items simple (data attributes hold image + title) and
+     avoids loading a separate lightbox library.
+ -->
 <script>
     // populate and open lightbox modal
     document.querySelectorAll('.gallery-card a').forEach(a=>{

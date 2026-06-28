@@ -1,3 +1,7 @@
+/**
+ * Toggle the mobile navigation menu visibility.
+ * Used by the hamburger control to show/hide the nav list on small screens.
+ */
 function toggleMenu() {
     const nav = document.querySelector('nav ul');
     if (!nav) return;
@@ -8,6 +12,10 @@ function toggleMenu() {
     }
 }
 
+/**
+ * Ensure the navigation shows correctly when the window is resized
+ * (keeps nav visible on larger screens after closing it on mobile).
+ */
 window.addEventListener('resize', function() {
     const nav = document.querySelector('nav ul');
     if (!nav) return;
@@ -16,6 +24,10 @@ window.addEventListener('resize', function() {
     }
 });
 
+/**
+ * Show or hide the "event type" select when the reservation type changes.
+ * Called from both the reservations page and initialization.
+ */
 function toggleEventType() {
     const reservationType = document.getElementById('reservation-type');
     const eventTypeSection = document.getElementById('event-type-section');
@@ -32,12 +44,17 @@ function toggleEventType() {
     }
 }
 
+/* Constants used for time validation and theme storage */
 const ORDER_START_HOUR = 10;
 const ORDER_END_HOUR = 21;
 const RESERVATION_START_HOUR = 9;
 const RESERVATION_END_HOUR = 21;
 const THEME_STORAGE_KEY = 'sweet-home-theme';
 
+/**
+ * Validate a time string (HH:MM) falls between startHour and endHour.
+ * Returns true if the provided time is within the allowed window.
+ */
 function isTimeAllowed(timeValue, startHour, endHour) {
     if (!timeValue) return false;
     const [hour, minute] = timeValue.split(':').map(Number);
@@ -46,6 +63,10 @@ function isTimeAllowed(timeValue, startHour, endHour) {
     return totalMinutes >= startHour * 60 && totalMinutes <= endHour * 60;
 }
 
+/**
+ * Check whether the current time is within ordering hours.
+ * Used to enable/disable the online ordering form.
+ */
 function validateOrderTime() {
     const now = new Date();
     const currentMinutes = now.getHours() * 60 + now.getMinutes();
@@ -54,6 +75,10 @@ function validateOrderTime() {
     return currentMinutes >= startMinutes && currentMinutes <= endMinutes;
 }
 
+/**
+ * Apply the selected theme by toggling `dark-mode` on the <body>.
+ * Updates the toggle button label when present.
+ */
 function setTheme(theme) {
     const body = document.body;
     const toggleButton = document.getElementById('theme-toggle');
@@ -66,6 +91,9 @@ function setTheme(theme) {
     }
 }
 
+/**
+ * Toggle between light and dark theme and persist to localStorage.
+ */
 function toggleTheme() {
     const isDark = document.body.classList.contains('dark-mode');
     const nextTheme = isDark ? 'light' : 'dark';
@@ -73,6 +101,9 @@ function toggleTheme() {
     localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
 }
 
+/**
+ * Initialize theme on page load. Uses saved preference or system preference.
+ */
 function initTheme() {
     const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
     if (savedTheme === 'dark' || savedTheme === 'light') {
@@ -83,6 +114,10 @@ function initTheme() {
     setTheme(prefersDark ? 'dark' : 'light');
 }
 
+/**
+ * Dynamically create a theme toggle button in the header if it doesn't exist.
+ * This keeps theme UI consistent without requiring markup in every page.
+ */
 function createThemeToggle() {
     const headerContainer = document.querySelector('header .container-fluid');
     if (!headerContainer || document.getElementById('theme-toggle')) return;
@@ -97,6 +132,10 @@ function createThemeToggle() {
     headerContainer.appendChild(toggleButton);
 }
 
+/**
+ * Update the online order availability message and submit button state
+ * based on the current time (open/closed hours).
+ */
 function updateOrderAvailability() {
     const statusMessage = document.getElementById('order-availability-message');
     const orderSubmit = document.querySelector('#order-form input[type="submit"]');
@@ -113,12 +152,14 @@ function updateOrderAvailability() {
     }
 }
 
+/** Clear the order form (when an order is successfully placed). */
 function clearOrderForm() {
     const orderForm = document.getElementById('order-form');
     if (!orderForm) return;
     orderForm.reset();
 }
 
+/** Clear the reservation form and reset the event-type state. */
 function clearReservationForm() {
     const reservationForm = document.getElementById('reservation-form');
     if (!reservationForm) return;
@@ -126,6 +167,10 @@ function clearReservationForm() {
     toggleEventType();
 }
 
+/**
+ * Show a short success message in the page then hide it after a timeout.
+ * `messageId` should be the id of an element already present in the page.
+ */
 function showSuccessMessage(messageId, text) {
     const messageElement = document.getElementById(messageId);
     if (!messageElement) return;
@@ -137,6 +182,10 @@ function showSuccessMessage(messageId, text) {
     }, 8000);
 }
 
+/**
+ * Validate the order form before submission client-side.
+ * Prevents submission if no items are selected or if outside order hours.
+ */
 function validateOrderForm(event) {
     const orderItems = Array.from(document.querySelectorAll('input[name="order-item[]"]'));
     if (!orderItems.some(item => item.checked)) {
@@ -158,6 +207,10 @@ function validateOrderForm(event) {
     return true;
 }
 
+/**
+ * Validate the reservation form before submission client-side.
+ * Checks reservation time window and that the selected datetime is in the future.
+ */
 function validateReservationForm(event) {
     const reservationTime = document.getElementById('time');
     const reservationDate = document.getElementById('date');
@@ -183,6 +236,10 @@ function validateReservationForm(event) {
     return true;
 }
 
+/**
+ * Handle the testimonials star rating form submit.
+ * Alerts the user with their selected rating and resets the form.
+ */
 function handleRatingSubmit(event) {
     event.preventDefault();
     const selectedRating = document.querySelector('input[name="rating"]:checked');
@@ -194,6 +251,13 @@ function handleRatingSubmit(event) {
     event.target.reset();
 }
 
+/**
+ * DOMContentLoaded initialization:
+ * - sets up responsive nav behavior
+ * - wires reservation and order form validation handlers
+ * - initializes theme toggle
+ * - wires testimonials rating submit
+ */
 document.addEventListener('DOMContentLoaded', function() {
     const nav = document.querySelector('nav ul');
     if (nav && window.innerWidth > 760) {

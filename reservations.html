@@ -114,6 +114,10 @@
             </form>
         </div>
 
+        <!-- Inline JS: small helpers specific to this page
+             - toggleEventType(): shows the "Type of event" field when user selects Event Reservation
+             - form validation snippet: uses Bootstrap's validation classes to prevent submission and show feedback
+        -->
         <script>
             function toggleEventType(){
                 const type = document.getElementById('reservation-type').value;
