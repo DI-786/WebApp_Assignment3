@@ -30,50 +30,113 @@
         </div>
         </nav>
     </header>
-    <h1>Reservations Form</h1>
-    <p>Please fill out the form below to make a reservation.</p>
-    <p id="reservation-success-message" class="success-message"></p>
-    <p class="reservation-hours"><strong>Reservation hours:</strong> 09:00 - 21:00.</p>
-    <form id="reservation-form" action="submit_reservation.php" method="POST">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br><br>
+        <h1>Reservations Form</h1>
+        <p>Please fill out the form below to make a reservation.</p>
+        <p id="reservation-success-message" class="success-message"></p>
+        <p class="reservation-hours"><strong>Reservation hours:</strong> 09:00 - 21:00.</p>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
+        <div class="container">
+            <form id="reservation-form" class="row g-3 needs-validation" novalidate action="submit_reservation.php" method="POST">
+                <div class="col-md-6 form-floating">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Full name" required>
+                    <label for="name">Full name</label>
+                    <div class="invalid-feedback">Please enter your name.</div>
+                </div>
 
-        <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone" required><br><br>
+                <div class="col-md-6 form-floating">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
+                    <label for="email">Email address</label>
+                    <div class="invalid-feedback">Please enter a valid email.</div>
+                </div>
 
-        <label for="date">Reservation Date:</label>
-        <input type="date" id="date" name="date" required><br><br>
+                <div class="col-md-6">
+                    <label for="phone" class="form-label">Phone number</label>
+                    <div class="input-group">
+                        <span class="input-group-text">+254</span>
+                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="712345678" required>
+                        <div class="invalid-feedback">Please enter a phone number.</div>
+                    </div>
+                </div>
 
-        <label for="time">Reservation Time:</label>
-        <input type="time" id="time" name="time" required min="09:00" max="21:00"><br><br>
+                <div class="col-md-3 form-floating">
+                    <input type="date" class="form-control" id="date" name="date" placeholder="Reservation date" required>
+                    <label for="date">Date</label>
+                    <div class="invalid-feedback">Please select a date.</div>
+                </div>
 
-        <label for="guests">Number of Guests:</label>
-        <input type="number" id="guests" name="guests" min="1" required><br><br>
+                <div class="col-md-3 form-floating">
+                    <input type="time" class="form-control" id="time" name="time" placeholder="Time" required min="09:00" max="21:00">
+                    <label for="time">Time</label>
+                    <div class="invalid-feedback">Please select a time between 09:00 and 21:00.</div>
+                </div>
 
-        <label for="reservation-type">Type of Reservation:</label>
-        <select id="reservation-type" name="reservation-type" required onchange="toggleEventType()">
-            <option value="">-- Select Reservation Type --</option>
-            <option value="table">Table Reservation</option>
-            <option value="event">Event Reservation</option>
-        </select><br><br>
+                <div class="col-md-3 form-floating">
+                    <input type="number" class="form-control" id="guests" name="guests" placeholder="Guests" min="1" required>
+                    <label for="guests">Guests</label>
+                    <div class="invalid-feedback">Enter number of guests (min 1).</div>
+                </div>
 
-        <div id="event-type-section" style="display:none;">
-            <label for="event-type">Type of Event:</label>
-            <select id="event-type" name="event-type">
-                <option value="">-- Select Event Type --</option>
-                <option value="wedding">Wedding</option>
-                <option value="birthday">Birthday</option>
-                <option value="private-dining">Private Dining</option>
-                <option value="catering">Catering</option>
-            </select><br><br>
+                <div class="col-md-6">
+                    <label for="reservation-type" class="form-label">Type of reservation</label>
+                    <select id="reservation-type" name="reservation-type" class="form-select" required onchange="toggleEventType()">
+                        <option value="">-- Select --</option>
+                        <option value="table">Table Reservation</option>
+                        <option value="event">Event Reservation</option>
+                    </select>
+                    <div class="invalid-feedback">Please choose a reservation type.</div>
+                </div>
+
+                <div id="event-type-section" class="col-12" style="display:none;">
+                    <label for="event-type" class="form-label">Type of event</label>
+                    <select id="event-type" name="event-type" class="form-select">
+                        <option value="">-- Select Event Type --</option>
+                        <option value="wedding">Wedding</option>
+                        <option value="birthday">Birthday</option>
+                        <option value="private-dining">Private Dining</option>
+                        <option value="catering">Catering</option>
+                    </select>
+                </div>
+
+                <div class="col-12 form-floating">
+                    <textarea class="form-control" placeholder="Special requests" id="requests" name="requests" style="height:100px"></textarea>
+                    <label for="requests">Special requests (optional)</label>
+                </div>
+
+                <!-- High chair and wheelchair extras removed as requested -->
+
+                <div class="col-md-4 form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="confirm-email" name="confirm-email">
+                    <label class="form-check-label" for="confirm-email">Email me a confirmation</label>
+                </div>
+
+                <div class="col-12 d-flex gap-2">
+                    <button class="btn btn-primary" type="submit">Submit reservation</button>
+                    <button class="btn btn-outline-secondary" type="reset">Reset</button>
+                </div>
+            </form>
         </div>
 
-        <input type="submit" value="Submit Reservation">
+        <script>
+            function toggleEventType(){
+                const type = document.getElementById('reservation-type').value;
+                const section = document.getElementById('event-type-section');
+                section.style.display = (type === 'event') ? 'block' : 'none';
+            }
 
-    </form>
+            (function () {
+                'use strict'
+                const forms = document.querySelectorAll('.needs-validation')
+                Array.from(forms).forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+            })()
+        </script>
 
 </body>
 </html>
