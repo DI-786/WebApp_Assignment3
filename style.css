@@ -7,6 +7,47 @@ body {
     color: #333;
 }
 
+.price {
+    margin: 12px 0 18px;
+    color: #7a4f42;
+    font-weight: 700;
+}
+
+.menu-price {
+    color: #5a4237;
+    font-weight: 700;
+    background: #f7e8de;
+    padding: 6px 10px;
+    border-radius: 8px;
+    display: inline-block;
+    min-width: 64px;
+    text-align: center;
+}
+
+/* Make menu list items a flex row so item name and price align horizontally */
+.menu-category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-category ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+
+@media (max-width: 560px) {
+    .menu-category ul li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+    .menu-price { align-self: flex-end; }
+}
+
 header {
     background: #fff;
     padding: 20px 24px;
