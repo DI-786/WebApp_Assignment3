@@ -504,3 +504,8 @@ body.dark-mode .status-message.closed {
     color: #ff6b6b;
 }
 
+.heading {
+    text-align: center;
+    margin: 24px 0;
+    color: #4b302a;
+}
