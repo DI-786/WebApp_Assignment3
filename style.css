@@ -277,6 +277,22 @@ main {
     }
 }
 
+.theme-toggle {
+    margin-left: 16px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 999px;
+    background: #5a4237;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.theme-toggle:hover {
+    background: #7a5b4a;
+}
+
 .status-message {
     margin-bottom: 12px;
     font-weight: 600;
@@ -328,3 +344,110 @@ main {
         width: 100%;
     }
 }
+
+body.dark-mode {
+    background: #121212;
+    color: #f1f1f1;
+}
+
+body.dark-mode header {
+    background: #1b1b1b;
+    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .logo h1,
+body.dark-mode nav a,
+body.dark-mode .theme-toggle {
+    color: #f1f1f1;
+}
+
+body.dark-mode nav a {
+    background: transparent;
+}
+
+body.dark-mode nav a:hover,
+body.dark-mode nav a.active {
+    background: #333;
+    color: #fff;
+}
+
+body.dark-mode main,
+body.dark-mode .about,
+body.dark-mode .menu-preview,
+body.dark-mode .page-links,
+body.dark-mode .order-online,
+body.dark-mode .testimonial-item,
+body.dark-mode .rating-section,
+body.dark-mode .menu-column,
+body.dark-mode .gallery-item {
+    background: #1e1e1e;
+    color: #e8e8e8;
+}
+
+body.dark-mode .menu-column {
+    border-color: #333;
+}
+
+body.dark-mode .hero::before {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.85));
+}
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+    background: #262626;
+    color: #f1f1f1;
+    border: 1px solid #444;
+}
+
+body.dark-mode option {
+    background: #262626;
+    color: #f1f1f1;
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+    color: #a8a8a8;
+}
+
+body.dark-mode label,
+body.dark-mode .order-hours,
+body.dark-mode .status-message,
+body.dark-mode .success-message {
+    color: #e8e8e8;
+}
+
+body.dark-mode .theme-toggle {
+    background: #444;
+    color: #fff;
+}
+
+body.dark-mode .navbar,
+body.dark-mode .navbar .container-fluid {
+    background-color: #1b1b1b !important;
+}
+
+body.dark-mode fieldset {
+    border-color: #444;
+}
+
+body.dark-mode .input-group,
+body.dark-mode .form-control,
+body.dark-mode .form-select {
+    background: #262626;
+    color: #f1f1f1;
+    border-color: #444;
+}
+
+body.dark-mode .btn {
+    background: #8b5d43;
+}
+
+body.dark-mode .btn:hover {
+    background: #a37257;
+}
+
+body.dark-mode .status-message.closed {
+    color: #ff6b6b;
+}
+

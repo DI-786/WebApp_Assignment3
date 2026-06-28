@@ -36,6 +36,7 @@ const ORDER_START_HOUR = 10;
 const ORDER_END_HOUR = 21;
 const RESERVATION_START_HOUR = 9;
 const RESERVATION_END_HOUR = 21;
+const THEME_STORAGE_KEY = 'sweet-home-theme';
 
 function isTimeAllowed(timeValue, startHour, endHour) {
     if (!timeValue) return false;
@@ -51,6 +52,49 @@ function validateOrderTime() {
     const startMinutes = ORDER_START_HOUR * 60;
     const endMinutes = ORDER_END_HOUR * 60;
     return currentMinutes >= startMinutes && currentMinutes <= endMinutes;
+}
+
+function setTheme(theme) {
+    const body = document.body;
+    const toggleButton = document.getElementById('theme-toggle');
+    if (theme === 'dark') {
+        body.classList.add('dark-mode');
+        if (toggleButton) toggleButton.textContent = 'Light Mode';
+    } else {
+        body.classList.remove('dark-mode');
+        if (toggleButton) toggleButton.textContent = 'Dark Mode';
+    }
+}
+
+function toggleTheme() {
+    const isDark = document.body.classList.contains('dark-mode');
+    const nextTheme = isDark ? 'light' : 'dark';
+    setTheme(nextTheme);
+    localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+}
+
+function initTheme() {
+    const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+    if (savedTheme === 'dark' || savedTheme === 'light') {
+        setTheme(savedTheme);
+        return;
+    }
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setTheme(prefersDark ? 'dark' : 'light');
+}
+
+function createThemeToggle() {
+    const headerContainer = document.querySelector('header .container-fluid');
+    if (!headerContainer || document.getElementById('theme-toggle')) return;
+
+    const toggleButton = document.createElement('button');
+    toggleButton.type = 'button';
+    toggleButton.id = 'theme-toggle';
+    toggleButton.className = 'theme-toggle';
+    toggleButton.textContent = 'Dark Mode';
+    toggleButton.addEventListener('click', toggleTheme);
+
+    headerContainer.appendChild(toggleButton);
 }
 
 function updateOrderAvailability() {
@@ -172,6 +216,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (reservationForm) {
         reservationForm.addEventListener('submit', validateReservationForm);
     }
+
+    createThemeToggle();
+    initTheme();
 
     const ratingForm = document.querySelector('.rating-form');
     if (ratingForm) {
